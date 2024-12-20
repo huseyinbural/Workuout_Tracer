@@ -2,12 +2,14 @@ import requests
 from datetime import datetime
 import os
 
-APP_ID = "92070170"
-API_KEY = "fef624f642750b63aa4f8c477b44e2bc"
+# APP_ID = "92070170"
+# API_KEY = "fef624f642750b63aa4f8c477b44e2bc"
 GENDER = "male"
 WEIGHT_KG = 75
 HEIGHT_CM = 178
 AGE = 23
+APP_ID = os.environ["APP_ID"]
+API_KEY = os.environ["API_KEY"]
 
 today_date = datetime.now().strftime("%d%m%Y")
 now_time = datetime.now().strftime("%X")
@@ -46,3 +48,5 @@ for exercise in data["exercises"]:
 response_sheety = requests.post(url=sheety_post_endpoint,json=sheet_inputs,headers=headerss)
 print(response_sheety.text)
 
+"""Environment Variable ekleyip token apikeyleri vs koruma altına alma kaldı sadece mutlaka bak 19.12.2024"""
+"""Olay basit run> edit configur>  oradan variablleri ekle scripti mesela Workout_Tracer/main.py yap kaydet."""
